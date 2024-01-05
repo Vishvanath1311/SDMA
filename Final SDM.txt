@@ -1,0 +1,194 @@
+create folder SDM and open cmd in this folder
+---------------------------------
+clone data in to the folder SDM
+In cmd:-git clone https://github.com/Vishvanath1311/SDM.git
+---------------------------------
+
+create folder named Public inside above SDM folder
+In cmd:-mkdir Public
+
+In cmd:-npm init (in SDM folder)
+press enter key until yes potion is not asked
+Type: yes
+-------------------------------
+open vscode by "code ." command
+npm install express
+create server.js file in the SDM folder and write connection code
+
+var express=require('express');
+var app=express();
+app.use(express.static('public'))
+app.get("/",(req, res)=>{res.send("Welcome to SDM Site");});
+/*app.get("/product",(req, res)=>{var p={ "id":45,
+"title":"Gerbera","description":"Wedding Flower", "unitprice":14, "quatity":7000 };
+res.send(p);
+});*/  //not required
+app.listen(8000);
+console.log("App is listening on port 8000");
+
+--------------------------
+
+create text file in side SDM Folder and write below code in it.
+
+FROM node:20
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+COPY . /app
+CMD node server.js
+EXPOSE 8000
+
+--------------------------
+git add .
+git commit -m "Add Files"
+git push
+--------------------------
+login to aws
+goto right side dropdown arrow "Your aws console".
+
+EC2 (click)
+instance
+launch an instance
+give name in name and tags
+select Ubuntu
+click on Create new key pair
+eneter the any name to key
+click on .ppk
+create key pair (Click)
+Launch instance
+Select instance (or click on instance id)
+go in security
+click security groups
+edit inbound rule
+add rule(in type:- select all traffic source type:- ipv4)
+click on save rule
+Click on EC2 Dashboard
+click on instance
+select instance and click on connect again click on connect
+------------------(below commands on aws cmd)
+sudo apt update
+create folder vis and go into that folder (use mkdir vis)
+cd vis
+clone repository in this vis folder
+ls (enter)
+cd SDM
+sudo apt install docker.io
+Y(Enter)
+sudo docker build -t vishu .(Enter) (any name can be given)
+sudo docker images(Enter)
+sudo docker run -d -p 8000:8000 vishu(Enter)
+sudo docker ps (Enter)
+copy the publicIps:13.211.206.23 ip address and paste it in browser
+=======================================================================================
+
+
+
+
+
+
+
+
+
+
+
+=======================================================================================
+
+=======================================================================================
+create folder SDMRevision folder
+create public folder in side SDMRevision folder
+create image folder inside image folder
+
+cd SDMRevision and open VSCode or terminal
+run command on terminal npm init (enter)
+hit (enter) till package.js file gets create
+
+
+create server.js file in SDMRevision folder
+
+copy & Paste the below mentioned server.js code
+
+var express=require('express');
+var app=express();
+app.use(express.static('public'))
+/*app.get("/",(req, res)=>{res.send("Welcome to  IET");});
+app.get("/product",(req, res)=>{var p={ "id":45, "title":"Gerbera","description":"Wedding Flower", "unitprice":14, "quatity":7000 };
+                                       res.send(p);
+});*/
+app.listen(8000);
+console.log("App is listening on port 8000");
+
+
+goto public folder and create html pages
+eg.
+welcome.html
+index.html
+
+run command on terminal npm install package
+run command on terminal node express.js
+
+open browser and type localhost:8000
+
+
+create a textfile inside and save it as "Dockerfile" and in below tab select AllFiles
+
+copy code from git or below code
+FROM node:20
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+COPY . /app
+CMD node server.js
+EXPOSE 8000
+
+
+=======================================================================================
+to clone data to PC
+1) create the repo on the git and add the readme file and select node option in gitignor dropdown option
+2)create new folder anywhere and clone the repo in that folder
+using following command
+i>git clone (http path of that repo)
+3)now add our project folder in that new folder
+and run below thre commands on cmd
+i>git add .
+ii>git commit -m "Add Sdm Project"
+iii>git push
+=======================================================================================
+
+
+login to aws
+goto right side dropdown arrow "Your aws console".
+
+EC2 (click)
+instance
+launch an instance
+give name in name and tags
+select Ubuntu
+click on Create new key pair
+eneter the any name to key
+click on .ppk
+create key pair (Click)
+Launch instance
+Select instance (or click on instance id)
+go in security
+click security groups
+edit inbound rule
+add rule(in type:- select all traffic source type:- ipv4)
+click on save rule
+Click on EC2 Dashboard
+click on instance
+select instance and click on connect again click on connect
+------------------(below commands on aws cmd)
+sudo apt update
+create folder vis and go into that folder (use mkdir vis)
+cd vis
+clone repository in this vis folder
+ls (enter)
+cd SDM	(repeate these two command until server.js file is visible)
+sudo apt install docker.io
+Y(Enter)
+sudo docker build -t vishu .(Enter) (any name can be given)
+sudo docker images(Enter)
+sudo docker run -d -p 8000:8000 vishu(Enter)
+sudo docker ps (Enter)
+copy the publicIps:13.211.206.23 ip address and paste it in browser
+
