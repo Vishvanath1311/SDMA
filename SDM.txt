@@ -1,0 +1,81 @@
+create folder SDM and open cmd in this folder
+---------------------------------
+clone data in to the folder SDM
+In cmd:-git clone https://github.com/Vishvanath1311/SDM.git
+---------------------------------
+
+create folder named Public inside above SDM folder
+In cmd:-mkdir Public
+
+In cmd:-npm init (in SDM folder)
+press enter key until yes potion is not asked
+Type: yes
+-------------------------------
+open vscode by "code ." command
+npm install express
+create server.js file in the SDM folder and write connection code
+
+var express=require('express');
+var app=express();
+app.use(express.static('public'))
+app.get("/",(req, res)=>{res.send("Welcome to SDM Site");});
+/*app.get("/product",(req, res)=>{var p={ "id":45,
+"title":"Gerbera","description":"Wedding Flower", "unitprice":14, "quatity":7000 };
+res.send(p);
+});*/  //not required
+app.listen(8000);
+console.log("App is listening on port 8000");
+
+--------------------------
+
+create text file in side SDM Folder and write below code in it.
+
+FROM node:20
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+COPY . /app
+CMD node server.js
+EXPOSE 8000
+
+--------------------------
+git add .
+git commit -m "Add Files"
+git push
+--------------------------
+login to aws
+goto right side dropdown arrow "Your aws console".
+
+EC2 (click)
+instance
+launch an instance
+give name in name and tags
+select Ubuntu
+click on Create new pair
+eneter the any name to key
+click on .ppk
+create (Click)
+Launch instance
+click on instance id 
+go in security
+click security groups
+edit inbound rule
+add rule(in type:- select all traffic source type:- ipv4)
+click on save rule
+Click on EC2 Dashboard
+click on instance
+select instance and click on connect again click on connect
+------------------(below commands on aws cmd)
+sudo apt update
+create folder vis and go into that folder
+clone repository in this vis folder
+ls (enter)
+cd SDM
+sudo apt install docker.io
+Y(Enter)
+sudo docker build -t vishu .(Enter)
+sudo docker images(Enter)
+sudo docker run -d -p 8000:8000 vishu(Enter)
+sudo docker ps (Enter)
+copy the publicIps:13.211.206.23 ip address and paste it in browser
+	
