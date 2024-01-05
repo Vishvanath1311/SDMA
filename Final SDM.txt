@@ -96,7 +96,7 @@ copy the publicIps:13.211.206.23 ip address and paste it in browser
 =======================================================================================
 create folder SDMRevision folder
 create public folder in side SDMRevision folder
-create image folder inside public folder
+create image folder inside public folder(keep the required images in this folder if any image is required)
 
 cd SDMRevision and open VSCode or terminal
 run command on terminal npm init (enter)
