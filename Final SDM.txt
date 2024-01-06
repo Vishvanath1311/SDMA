@@ -123,8 +123,8 @@ eg.
 welcome.html
 index.html
 
-run command on terminal npm install package
-run command on terminal node express.js
+run command on terminal npm install express
+run command on terminal node server.js
 
 open browser and type localhost:8000
 
